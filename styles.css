@@ -714,3 +714,202 @@ main > .toolkit-section[data-page="about"] .toolkit-note {
   .hero.hero-clean h1 { font-size:clamp(46px,10.7vw,62px); letter-spacing:-.065em; margin-bottom:23px; }
   .hero.hero-clean .hero-description { font-size:15px; }
 }
+
+
+/* November 2026 résumé integration — compact fourth navigation action. */
+.site-header .desktop-nav a.resume-nav-link {border:1px solid #bacbbb;color:#264e3c;background:#eef3e9;gap:7px;margin-left:5px;}
+.site-header .desktop-nav a.resume-nav-link:hover {background:#dcebcf;color:#173c2a;}
+.site-header .desktop-nav a.resume-nav-link span {font-size:15px;line-height:0;}
+.about-journey-grid .timeline-period {white-space:normal;}
+.about-journey-grid .timeline-entry p:last-child {line-height:1.7;}
+
+/* Clean CareDirectory visual: a text-free responsive vector map. */
+.caredirectory-visual { background: #e9f2e8; position: relative; overflow: hidden; isolation: isolate; }
+.care-map-art { display: block; width: 100%; height: 100%; }
+.project-context {font:700 9px var(--sans);letter-spacing:.7px;color:#6b927b;white-space:nowrap;}
+@media(max-width:850px) {
+  .site-header .desktop-nav a.resume-nav-link {padding-left:11px;padding-right:11px;}
+}
+@media(max-width:600px) {
+  .site-header .desktop-nav {grid-template-columns:repeat(4,minmax(0,1fr));}
+  .site-header .desktop-nav a.resume-nav-link {margin:0;gap:2px;}
+  .project-context {font-size:8px;}
+
+}
+
+
+/* Course names only: native disclosures keep the education section compact. */
+.about-journey-grid .education-card .coursework {
+  margin-top: 18px;
+  border-top: 1px solid #e4eae3;
+  color: #355444;
+}
+.coursework > summary {
+  cursor: pointer;
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 1px;
+  font: 700 12px/1.4 var(--sans);
+  list-style: none;
+  outline-offset: 4px;
+}
+.coursework > summary::-webkit-details-marker { display: none; }
+.coursework > summary:hover { color: #1c6842; }
+.course-count {display:flex;align-items:center;gap:9px;color:#8a968e;font-size:10px;white-space:nowrap;font-weight:500;}
+.course-chevron {display:inline-block;font-size:19px;line-height:1;transition:transform .2s ease;color:#376a50;}
+.coursework[open] .course-chevron {transform:rotate(180deg);}
+.coursework-body {padding:1px 0 17px;}
+.course-group + .course-group {padding-top:19px;margin-top:19px;border-top:1px solid #e9ede7;}
+.course-group h5 {font:700 10px/1.5 var(--sans);text-transform:uppercase;letter-spacing:1px;color:#667f6b;margin:0 0 11px;}
+.course-name-grid {list-style:none; margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,165px),1fr));gap:7px;}
+.course-name-grid li {
+  font: 500 11px/1.45 var(--body);
+  color: #4a5a4f;
+  background: #f5f8f3;
+  border: 1px solid #e7ece5;
+  border-radius: 7px;
+  padding: 9px 10px;
+  min-width:0;
+  overflow-wrap:break-word;
+}
+.about-journey-grid .education-card .school-bottom { margin-top:14px; }
+/* CareDirectory: minimal text labels placed outside the illustration's focal area. */
+.care-art-caption {
+  position:absolute;
+  z-index:2;
+  pointer-events:none;
+  color:#456f59;
+  font:700 clamp(8px,.76vw,11px)/1.3 var(--sans);
+  letter-spacing:1.45px;
+  text-shadow:0 1px 0 rgba(255,255,255,.75);
+  white-space:nowrap;
+}
+.care-art-caption-top {top:18px;left:20px;}
+.care-art-caption-bottom {bottom:17px;right:20px;text-align:right;}
+@media(max-width:600px) {
+  .care-art-caption {font-size:8px;letter-spacing:1.1px;}
+  .care-art-caption-top {top:14px;left:16px;}
+  .care-art-caption-bottom {bottom:13px;right:16px;}
+  .course-name-grid {grid-template-columns:repeat(auto-fit,minmax(min(100%,140px),1fr));}
+}
+@media(prefers-reduced-motion:reduce){.course-chevron{transition:none;}}
+
+
+/* St. John's coursework: degree-relevant subjects first; optional broader study last. */
+.coursework-body > .course-group {margin-top: 2px;}
+.coursework-additional {
+  margin-top: 23px;
+  padding-top: 10px;
+  border-top: 1px solid #e1e8df;
+}
+.coursework-additional > summary {
+  list-style: none;
+  cursor: pointer;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  padding:12px 2px;
+  font: 600 11px/1.4 var(--sans);
+  color:#496b54;
+  outline-offset:4px;
+}
+.coursework-additional > summary::-webkit-details-marker {display:none;}
+.coursework-additional > summary:hover {color:#236640;}
+.coursework-additional[open] > summary .course-chevron {transform:rotate(180deg);}
+.coursework-additional-content {padding: 5px 0 6px;}
+.coursework-additional-content .course-group + .course-group {margin-top:17px;padding-top:17px;}
+
+
+/* One Coursework disclosure only; broader classes follow technical courses inline. */
+.coursework-additional-static {
+  margin-top: 26px;
+  padding-top: 23px;
+  border-top: 1px solid #dfe8dc;
+}
+.coursework-additional-heading {
+  display:flex;
+  align-items:baseline;
+  justify-content:space-between;
+  gap:10px;
+  margin-bottom:17px;
+}
+.coursework-additional-heading h5 {
+  margin:0;
+  font:700 11px/1.5 var(--sans);
+  color:#345c41;
+  letter-spacing:.8px;
+  text-transform:uppercase;
+}
+.coursework-additional-heading .course-count {font-size:10px;}
+.coursework-additional-static .course-group + .course-group {
+  margin-top:18px;
+  padding-top:18px;
+}
+
+
+/* NEAC: make the national placement a substantial, readable achievement. */
+.neac-award {
+  display: grid;
+  grid-template-columns: 82px minmax(0, 1fr);
+  gap: 15px;
+  align-items: center;
+  background: #eaf5d8;
+  border: 1px solid #c4ddb1;
+  border-radius: 10px;
+  padding: 16px;
+  margin: 8px 0 17px;
+}
+.neac-award-rank {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 4px;
+  padding-right: 12px;
+  border-right: 1px solid #b3cba7;
+}
+.neac-award-number {
+  color: #1e4934;
+  font: 700 43px/1 var(--sans);
+  letter-spacing: -2.1px;
+  white-space: nowrap;
+}
+.neac-award-number sup {
+  font-size: 11px;
+  line-height: 1;
+  vertical-align: super;
+  letter-spacing: .3px;
+  margin-left: 2px;
+}
+.neac-award-place {
+  font: 700 8px/1.3 var(--sans);
+  letter-spacing: 1px;
+  color: #3a6545;
+  white-space: nowrap;
+}
+.neac-award-info { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
+.neac-award-label {
+  font: 700 12px/1.3 var(--sans);
+  color: #234b36;
+  letter-spacing: .55px;
+}
+.neac-award-competition {
+  font: 600 11px/1.4 var(--body);
+  color: #52664f;
+  overflow-wrap: break-word;
+}
+.neac-award-location {
+  font: 700 10px/1.5 var(--sans);
+  color: #43704e;
+}
+@media (max-width: 600px) {
+  .neac-award { grid-template-columns: 73px minmax(0,1fr); padding: 13px; gap: 12px; }
+  .neac-award-number { font-size: 38px; }
+  .neac-award-label { font-size: 11px; }
+  .neac-award-competition { font-size: 10px; }
+  .neac-award-location { font-size: 9px; }
+  .neac-award-place { font-size: 7px; }
+}
