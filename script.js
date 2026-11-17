@@ -1,4 +1,3 @@
-
 // Lightweight portfolio interactions. No frameworks or build step needed.
 const year = document.getElementById('year');
 if (year) year.textContent = String(new Date().getFullYear());
@@ -56,6 +55,19 @@ function initializeLinkedInFeed() {
   script.src = 'https://elfsightcdn.com/platform.js';
   script.async = true;
   script.dataset.elfsightPlatform = 'true';
+  const widgetRoot = feed.querySelector('.elfsight-app-2305277e-16cb-4b27-a288-168660fe93a8');
+  const fallback = document.getElementById('linkedin-feed-fallback');
+  const updateFeedFallback = () => {
+    const rendered = Boolean(widgetRoot && (widgetRoot.children.length > 0 || widgetRoot.querySelector('iframe')));
+    if (rendered && fallback) fallback.hidden = true;
+    return rendered;
+  };
+  if (widgetRoot && !updateFeedFallback() && typeof MutationObserver !== 'undefined') {
+    const observer = new MutationObserver(() => {
+      if (updateFeedFallback()) observer.disconnect();
+    });
+    observer.observe(widgetRoot, {childList:true, subtree:true});
+  }
   script.onerror = () => { // Preserve the already visible LinkedIn fallback.
     feed.setAttribute('data-feed-status', 'unavailable');
   };
